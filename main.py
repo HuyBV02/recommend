@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.neighbors import NearestNeighbors
+from flask_cors import CORS
 
 # Kết nối MongoDB
 MONGODB_URI = 'mongodb+srv://khanhduc2902:khanhduc2902@cluster0.03at6jt.mongodb.net/cuahangdientu'
@@ -13,6 +14,7 @@ product_collection = db['products']
 
 # Flask app
 app = Flask(__name__)
+CORS(app)
 
 def get_user_views_from_mongodb():
     """Trích xuất dữ liệu từ MongoDB và chuẩn hóa."""
